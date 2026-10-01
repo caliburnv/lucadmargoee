@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Luca D'Margoe</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 8px;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #f3efe7;
+      color: #34332e;
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
+
+    /* NAV */
+
+    nav {
+      position: sticky;
+      top: 16px;
+      z-index: 20;
+
+      width: fit-content;
+      margin: 16px auto 0;
+
+      display: flex;
+      gap: 6px;
+
+      padding: 6px;
+
+      background: rgba(255,255,255,.75);
+      backdrop-filter: blur(12px);
+
+      border: 7px solid rgba(60,60,50,.08);
+      border-radius: 50px;
+    }
+
+    nav a {
+      font-size: 11px;
+      padding: 7px 13px;
+      border-radius: 30px;
+      color: #66635b;
+      transition: .2s;
+    }
+
+    nav a:hover {
+      background: #e8dfd0;
+      color: #34332e;
+    }
+
+
+    /* GENERAL */
+
+    .container {
+      width: min(1050px, calc(100% - 40px));
+      margin: auto;
+    }
+
+    section {
+      padding: 75px 0;
+    }
+
+    .section-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 20px;
+      margin-bottom: 28px;
+    }
+
+    .section-title h2 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(27px, 4vw, 40px);
+      font-weight: 500;
+    }
+
+    .section-title span {
+      font-size: 11px;
+      color: #8b877d;
+    }
+
+
+    /* HERO */
+
+    .hero {
+      min-height: 560px;
+      display: grid;
+      grid-template-columns: 42% 58%;
+      align-items: center;
+      gap: 30px;
+      padding-top: 65px;
+    }
+
+    .hero-person {
+      height: 470px;
+      display: flex;
+      align-items: end;
+      justify-content: center;
+    }
+
+    .hero-person img {
+      width: 120%;
+      height: 120%;
+      object-fit: contain;
+      object-position: bottom center;
+      margin-bottom: 38px;
+    }
+
+    .hero-info {
+      padding-left: 20px;
+      text-align: justify;
+    }
+
+    .hero-small {
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #8a867c;
+      margin-bottom: 15px;
+    }
+
+    .hero-name {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(55px, 8vw, 105px);
+      line-height: .92;
+      font-weight: 500;
+      letter-spacing: -.045em;
+    }
+
+    .hero-name span {
+      display: block;
+      
+      font-style: italic;
+    }
+
+    .hero-description {
+      text-align: justify;
+      max-width: 440px;
+      margin-top: 28px;
+      color: #656158;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+
+    /* FAVORITES */
+
+    .favorite-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .favorite {
+      background: #fffdf9;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(60,50,40,.08);
+    }
+
+    .favorite-image {
+      height: 200px;
+      margin-bottom: 80px;
+      overflow: hidden;
+    }
+
+    .favorite-image img {
+      height: 100%;
+      object-fit: cover;
+      transition: transform .4s;
+    }
+
+    .favorite:hover .favorite-image img {
+      transform: scale(1.04);
+    }
+
+    .favorite-content {
+      padding: 20px;
+    }
+
+    .favorite-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      color: #999184;
+      margin-bottom: 8px;
+    }
+
+    .favorite h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 25px;
+      font-weight: 500;
+      margin-bottom: 7px;
+    }
+
+    .favorite p {
+      font-size: 12px;
+      color: #777269;
+      line-height: 1.7;
+    }
+
+
+    /* JUYEON */
+
+    .person-section {
+      padding-top: 30px;
+    }
+
+    .person-box {
+      display: grid;
+      grid-template-columns: 230px 1fr;
+      align-items: center;
+      gap: 40px;
+
+      max-width: 720px;
+      margin: auto;
+    }
+
+    .person-photo {
+      height: 290px;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #ddd4c7;
+    }
+
+    .person-photo img {
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .person-info small {
+      display: block;
+      color: #999184;
+      font-size: 10px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .person-info h3 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(35px, 5vw, 55px);
+      line-height: 1;
+      font-weight: 500;
+      margin-bottom: 18px;
+    }
+
+    .person-info p {
+      max-width: 400px;
+      color: #706c63;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+
+    /* PLAYLIST */
+
+    .playlist {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+
+    .song {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      min-height: 90px;
+
+      background: #fffdf9;
+      border-radius: 15px;
+      overflow: hidden;
+
+      border: 1px solid rgba(60,50,40,.07);
+
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .song:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(70,60,45,.08);
+    }
+
+    .song-image {
+      height: 100%;
+      min-height: 90px;
+    }
+
+    .song-image img {
+      width: 90px;
+  height: 90px;
+  object-fit: cover;
+    }
+
+    .song-info {
+      padding: 15px 17px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .song-info small {
+      color: #999184;
+      font-size: 10px;
+      margin-bottom: 4px;
+    }
+
+    .song-info h4 {
+      font-family: "Playfair Display", serif;
+      font-size: 19px;
+      font-weight: 500;
+      line-height: 1.2;
+    }
+
+    .spotify {
+      font-size: 10px;
+      color: #777269;
+      margin-top: 7px;
+    }
+
+
+    /* CAMERA ROLL */
+
+    .camera-section {
+      padding-bottom: 90px;
+    }
+
+    .camera-roll {
+      display: flex;
+      gap: 15px;
+
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+      scroll-snap-type: x mandatory;
+
+      padding: 5px 0 15px;
+
+      scrollbar-width: none;
+
+      cursor: grab;
+    }
+
+    .camera-roll::-webkit-scrollbar {
+      display: none;
+    }
+
+    .camera-roll:active {
+      cursor: grabbing;
+    }
+
+    .camera-photo {
+      flex: 0 0 255px;
+      height: 330px;
+
+      border-radius: 17px;
+      overflow: hidden;
+
+      scroll-snap-align: start;
+
+      background: #ddd5c9;
+    }
+
+    .camera-photo:nth-child(even) {
+      margin-top: 22px;
+    }
+
+    .camera-photo img {
+      height: 100%;
+      object-fit: cover;
+    }
+
+
+    /* ABOUT */
+
+    .about {
+      border-top: 1px solid #ded8cd;
+      border-bottom: 1px solid #ded8cd;
+
+      padding: 60px 0;
+    }
+
+    .about-inner {
+      max-width: 680px;
+      margin: auto;
+    }
+
+    .about-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .15em;
+      color: #999184;
+      margin-bottom: 15px;
+    }
+
+    .about h2 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(30px, 5vw, 48px);
+      font-weight: 500;
+      margin-bottom: 18px;
+    }
+
+    .about p {
+      font-size: 13px;
+      line-height: 1.9;
+      color: #716d65;
+      max-width: 600px;
+    }
+
+
+    /* FOOTER */
+
+    footer {
+      padding: 70px 20px 35px;
+      text-align: center;
+    }
+
+    .footer-main {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(23px, 4vw, 34px);
+      font-style: italic;
+      margin-bottom: 12px;
+    }
+
+    .footer-small {
+      font-size: 10px;
+      color: #999184;
+      letter-spacing: .08em;
+    }
+
+
+    /* TABLET */
+
+    @media (max-width: 800px) {
+
+      .hero {
+        grid-template-columns: 38% 62%;
+        min-height: 480px;
+      }
+
+      .hero-person {
+        height: 390px;
+      }
+
+      .hero-name {
+        font-size: clamp(45px, 9vw, 75px);
+      }
+
+      .favorite-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .favorite {
+        display: grid;
+        grid-template-columns: 40% 60%;
+      }
+
+      .favorite-image {
+        height: 100%;
+        min-height: 210px;
+      }
+
+      .playlist {
+        grid-template-columns: 1fr;
+      }
+    }
+
+
+    /* MOBILE */
+
+    @media (max-width: 600px) {
+
+      nav {
+        max-width: calc(100% - 25px);
+        overflow-x: auto;
+        justify-content: flex-start;
+        margin-top: 10px;
+      }
+
+      nav a {
+        white-space: nowrap;
+        font-size: 10px;
+        padding: 6px 10px;
+      }
+
+      .container {
+        width: min(100% - 28px, 1050px);
+      }
+
+      section {
+        padding: 50px 0;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding-top: 45px;
+        gap: 20px;
+      }
+
+      .hero-person {
+        height: 280px;
+        order: 1;
+      }
+
+      .hero-info {
+        order: 2;
+        padding-left: 0;
+        text-align: center;
+      }
+
+      .hero-name {
+        font-size: clamp(48px, 15vw, 72px);
+      }
+
+      .hero-description {
+        margin: 22px auto 0;
+        max-width: 330px;
+        font-size: 13px;
+      }
+
+      .section-title {
+        align-items: flex-end;
+        margin-bottom: 20px;
+      }
+
+      .section-title h2 {
+        font-size: 29px;
+      }
+
+      .section-title span {
+        font-size: 9px;
+      }
+
+      .favorite {
+        display: block;
+      }
+
+      .favorite-image {
+        height: 210px;
+      }
+
+      .person-box {
+        grid-template-columns: 135px 1fr;
+        gap: 20px;
+      }
+
+      .person-photo {
+        height: 190px;
+      }
+
+      .person-info h3 {
+        font-size: 32px;
+      }
+
+      .person-info p {
+        font-size: 11px;
+      }
+
+      .song {
+        grid-template-columns: 80px 1fr;
+      }
+
+      .song-image {
+        min-height: 85px;
+        width: 70px;
+  height: 70px;
+  object-fit: cover;
+      }
+
+      .song-info h4 {
+        font-size: 17px;
+      }
+
+      .camera-photo {
+        flex-basis: 220px;
+        height: 290px;
+      }
+
+      .about {
+        padding: 50px 0;
+      }
+
+      footer {
+        padding-top: 55px;
+      }
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+
+  <nav>
+    <a href="#about">about</a>
+    <a href="#favorites">favorites</a>
+    <a href="#music">music</a>
+    <a href="#photos">photos</a>
+  </nav>
+
+
+  <!-- HERO -->
+
+  <section class="hero container">
+
+    <div class="hero-person">
+      <!-- FOTO LUCA TANPA BACKGROUND -->
+      <img src="bgbgbgbg.png" alt="Luca D'Margoe">
+    </div>
+
+    <div class="hero-info">
+
+      <div class="hero-small">
+        personal space
+      </div>
+
+      <h1 class="hero-name">
+        Luca
+        <span>D'Margoe</span>
+      </h1>
+
+      <p class="hero-description">
+        Simple things, pretty things, good food, good music,
+        and little things that somehow become memorable.
+        This is a little space about Luca and the things
+        that make her, her.
+      </p>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ABOUT -->
+
+  <section class="about" id="about">
+
+    <div class="about-inner">
+
+      <div class="about-label">
+        a little about her
+      </div>
+
+      <h2>
+        Effortless, but never boring.
+      </h2>
+
+      <p>
+        Luca has an eye for the little things that make life feel special. She appreciates clean aesthetics, soft tones, good food, and music that just hits right. While she usually keeps her cool, she’s surprisingly passionate when it comes to the things she truly cares about.
+      </p>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- FAVORITES -->
+
+  <section class="container" id="favorites">
+
+    <div class="section-title">
+      <h2>Luca's Favorites</h2>
+      <span>some of her favorite things</span>
+    </div>
+
+
+    <div class="favorite-grid">
+
+
+      <!-- COLORS -->
+
+      <article class="favorite">
+
+        <div class="favorite-image">
+          <img src="color.jpg" alt="Luca's favorite colors">
+        </div>
+
+        <div class="favorite-content">
+
+          <div class="favorite-label">
+            colors
+          </div>
+
+          <h3>
+            Pastel & earthy
+          </h3>
+
+          <p>
+            Low-key obsessed with warm tones, soft palettes, and anything easy on the eyes.
+          </p>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- FOOD -->
+
+      <article class="favorite">
+
+        <div class="favorite-image">
+          <img src="mkn.jpg" alt="Luca's favorite food">
+        </div>
+
+        <div class="favorite-content">
+
+          <div class="favorite-label">
+            food
+          </div>
+
+          <h3>
+            Tasty & plenty
+          </h3>
+
+          <p>
+            If the food’s great, the portions are fair, and it doesn't break the bank, sign her up.
+          </p>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- TINY FACT -->
+
+      <article class="favorite">
+
+        <div class="favorite-image">
+          <img src="hewan.jpg" alt="Tiny fact about Luca">
+        </div>
+
+        <div class="favorite-content">
+
+          <div class="favorite-label">
+            tiny fact
+          </div>
+
+          <h3>
+            Three chickens.
+          </h3>
+
+          <p>
+            Luca actually used to have three colorful little chickens. Safe to say, it was cute while it lasted.
+          </p>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- FAVORITE PERSON -->
+
+  <section class="container person-section">
+
+    <div class="section-title">
+      <h2>Favorite Person</h2>
+      <span>no explanation needed</span>
+    </div>
+
+
+    <div class="person-box">
+
+      <div class="person-photo">
+        <img src="juyeon1.jpg" alt="Lee Juyeon">
+      </div>
+
+      <div class="person-info">
+
+        <small>
+          Currently loving
+        </small>
+
+        <h3>
+          Lee<br>Juyeon
+        </h3>
+
+        <p>
+          One of those people who somehow carries good looks as a whole personality.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- PLAYLIST -->
+
+  <section class="container" id="music">
+
+    <div class="section-title">
+      <h2>Luca's Playlist</h2>
+      <span>songs that belong here</span>
+    </div>
+
+
+    <div class="playlist">
+
+
+      <!-- SONG 1 -->
+
+      <a
+        class="song"
+        href="https://open.spotify.com/artist/1Xyo4u8uXC1ZmMpatF05PJ?si=6d631287831b4ccd"
+        target="_blank"
+      >
+
+        <div class="song-image">
+          <img src="lagu1.jpg" alt="">
+        </div>
+
+        <div class="song-info">
+
+
+          <h4>
+                        The Weeknd
+          </h4>
+
+          <div class="spotify">
+            listen on Spotify ↗
+          </div>
+
+        </div>
+
+      </a>
+
+
+
+      <!-- SONG 2 -->
+
+      <a
+        class="song"
+        href="https://open.spotify.com/artist/7Ln80lUS6He07XvHI8qqHH?si=6ee2e46253f14cc9"
+        target="_blank"
+      >
+
+        <div class="song-image">
+          <img src="lagu2.jpg"">
+        </div>
+
+        <div class="song-info">
+
+
+
+          <h4>
+            Arctic Monkeys
+          </h4>
+
+          <div class="spotify">
+            listen on Spotify ↗
+          </div>
+
+        </div>
+
+      </a>
+
+
+      <a
+        class="song"
+        href="https://open.spotify.com/artist/7cYEt1pqMgXJdq00hAwVpT?si=Oso2Y_xXS2SJuaAa5qAaYQ"
+        target="_blank"
+      >
+
+        <div class="song-image">
+          <img src="lagu3.jpg" alt="">
+        </div>
+
+        <div class="song-info">
+
+         
+
+          <h4>
+            Chase Atlantic
+          </h4>
+
+          <div class="spotify">
+            listen on Spotify ↗
+          </div>
+
+        </div>
+
+      </a>
+
+
+
+
+      <a
+        class="song"
+        href="https://open.spotify.com/artist/66CXWjxzNUsdJxJ2JdwvnR?si=nOFYQqUKSkmZdU8TxBOZsw"
+        target="_blank"
+      >
+
+        <div class="song-image">
+          <img src="lagu4.jpg" alt="">
+        </div>
+
+        <div class="song-info">
+
+          <h4>
+            Ariana Grande
+          </h4>
+
+          <div class="spotify">
+            listen on Spotify ↗
+          </div>
+
+        </div>
+
+      </a>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- CAMERA ROLL -->
+
+  <section class="camera-section" id="photos">
+
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Luca's Camera Roll</h2>
+        <span>little pieces of her world</span>
+      </div>
+
+    </div>
+
+
+    <div class="camera-roll">
+
+      <div class="camera-photo">
+        <img src="luca1.jpg" alt="">
+      </div>
+
+      <div class="camera-photo">
+        <img src="luca2.jpg" alt="">
+      </div>
+
+      <div class="camera-photo">
+        <img src="luca3.jpg" alt="">
+      </div>
+
+      <div class="camera-photo">
+        <img src="luca5.jpg" alt="">
+      </div>
+
+      <div class="camera-photo">
+        <img src="luca6.jpg" alt="">
+      </div>
+
+      <div class="camera-photo">
+        <img src="luca7.jpg" alt="">
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- CLOSING -->
+
+  <section class="about">
+
+    <div class="about-inner">
+
+      <div class="about-label">
+        Luca D'Margoe
+      </div>
+
+      <h2>
+        Just a collection of little things.
+      </h2>
+
+      <p>
+       Her favorite hues, the tracks on repeat, the little things she adores, the minds she admires, and every small detail worth holding onto.
+      </p>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="footer-main">
+      for the person i love, Luca D'Margoe ♡
+    </div>
+
+    <div class="footer-small">
+      — Lincoln
+    </div>
+
+  </footer>
+
+
+</body>
+</html>
